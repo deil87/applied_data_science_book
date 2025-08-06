@@ -17,6 +17,7 @@ class Competition:
     team_b: Team #= field(default_factory=Team)
     score_diff: int
     date: date #= field(default_factory=lambda: date.today())
+    scores_stats: dict = field(default_factory=dict)
 
     def __calculate_score(comp, pl_ratings):
         scores_a = sum([pl_ratings[pl] for pl in comp.team_a])
