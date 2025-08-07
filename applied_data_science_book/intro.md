@@ -23,7 +23,3 @@ This book showcases applied data science through practical applications in diver
 - Environmental Monitoring and Climate Science
 
 Each chapter covers real-world problems, data science techniques used in these fields, and best practices to provide you with relevant skills and insights for applied data science careers.
-Check out the content pages bundled with this sample book to see more.
-
-```{tableofcontents}
-```
