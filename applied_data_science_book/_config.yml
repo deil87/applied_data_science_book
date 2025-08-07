@@ -18,6 +18,8 @@ latex:
 html:
   extra_css:
     - _static/custom.css
+  extra_head:
+    - _includes/gtag.html
 
 sphinx:
   config:
