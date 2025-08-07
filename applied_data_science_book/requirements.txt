@@ -9,3 +9,4 @@ shap==0.48.0
 smogn==0.1.2
 tensorflow==2.18.0
 umap_learn==0.5.9.post2
+ipywidgets
