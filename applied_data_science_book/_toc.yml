@@ -5,6 +5,7 @@ format: jb-book
 root: intro
 chapters:
 - file: sport_analytics
+- file: fraud_detection
 - file: markdown
 - file: notebooks
 - file: markdown-notebooks

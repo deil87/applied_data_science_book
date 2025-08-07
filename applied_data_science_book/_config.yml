@@ -15,6 +15,10 @@ latex:
   latex_documents:
     targetname: book.tex
 
+html:
+  extra_css:
+    - _static/custom.css
+
 sphinx:
   config:
     suppress_warnings: ["mystnb.unknown_mime_type"]
