@@ -1,6 +1,6 @@
 # Applied Data Science: Exploring Domains and Careers
 
-## For Whom This Book Is
+## Intended Audience
 
 This book is designed for a diverse audience interested in applied data science, including but not limited to:
 
