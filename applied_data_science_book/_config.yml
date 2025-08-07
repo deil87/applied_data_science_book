@@ -15,12 +15,6 @@ latex:
   latex_documents:
     targetname: book.tex
 
-html:
-  extra_css:
-    - _static/custom.css
-  extra_head:
-    - _includes/gtag.html
-
 sphinx:
   config:
     suppress_warnings: ["mystnb.unknown_mime_type"]
@@ -40,5 +34,10 @@ repository:
 # Add GitHub buttons to your book
 # See https://jupyterbook.org/customize/config.html#add-a-link-to-your-repository
 html:
+  extra_head:
+    - _includes/custom.html
+  extra_css:
+    - _static/custom.css
   use_issues_button: true
   use_repository_button: true
+  
