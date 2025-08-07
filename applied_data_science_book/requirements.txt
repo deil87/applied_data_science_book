@@ -1,6 +1,6 @@
 jupyter-book
 matplotlib==3.10.5
-numpy==2.3.2
+numpy>=1.26,<2.1
 pandas==2.3.1
 plotly==6.2.0
 scikit_learn==1.7.1
