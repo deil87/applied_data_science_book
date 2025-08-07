@@ -34,10 +34,10 @@ repository:
 # Add GitHub buttons to your book
 # See https://jupyterbook.org/customize/config.html#add-a-link-to-your-repository
 html:
-  extra_head:
-    - _includes/custom.html
   extra_css:
     - _static/custom.css
+  analytics:
+    google_analytics_id: G-3F6VTJC63S
   use_issues_button: true
   use_repository_button: true
   
