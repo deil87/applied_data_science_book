@@ -27,6 +27,7 @@ dist-ssr
 .ipynb_checkpoints
 #*.ipynb
 .virtual_documents
+applied_data_science_book/_build
 
 # Packaging tools
 *.egg-info/
