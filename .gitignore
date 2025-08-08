@@ -35,3 +35,6 @@ applied_data_science_book/_build
 # Compiled files
 __pycache__/
 *.pyc
+
+# Keras
+ktuner_dir
