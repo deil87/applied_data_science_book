@@ -1,4 +1,4 @@
-# Applied Data Science: Exploring Domains and Careers
+# Applied Data Science: Diary of a Lonely Scientist
 
 ## Intended Audience
 
