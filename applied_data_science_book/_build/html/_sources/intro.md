@@ -1,6 +1,6 @@
-# Applied Data Science: Exploring Domains and Careers
+# Applied Data Science: Diary of a Lonely Scientist
 
-## For Whom This Book Is
+## Intended Audience
 
 This book is designed for a diverse audience interested in applied data science, including but not limited to:
 
@@ -21,5 +21,6 @@ This book showcases applied data science through practical applications in diver
 - Healthcare and Biomedical Data Applications
 - Marketing Analytics and Customer Insights
 - Environmental Monitoring and Climate Science
+- Algorithmic trading 
 
 Each chapter covers real-world problems, data science techniques used in these fields, and best practices to provide you with relevant skills and insights for applied data science careers.

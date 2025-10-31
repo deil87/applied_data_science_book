@@ -8,3 +8,7 @@ chapters:
 - file: fraud_detection
 - file: marketing
 - file: satellite
+- file: algorithmic_trading
+  sections:
+      - file: algorithmic_trading_hft
+      - file: algorithmic_trading_electricity_trading
