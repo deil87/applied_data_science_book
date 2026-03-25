@@ -7,8 +7,27 @@ chapters:
 - file: sport_analytics
 - file: fraud_detection
 - file: marketing
+  sections:
+      - file: marketing_attribution
+      - file: marketing_conversion
+      - file: retention_engagement_churn
 - file: satellite
 - file: algorithmic_trading
   sections:
       - file: algorithmic_trading_hft
       - file: algorithmic_trading_electricity_trading
+- file: risk_assesment
+  sections:
+      - file: risk_assesment_and_optimization
+      - file: risk_assesment_credit_risk
+      - file: risk_assesment_insurance
+- file: quality_control
+  sections:
+      - file: manufacturing_automation
+      - file: quality_control_visual_inspection
+      - file: quality_control_predictive_maintenance
+- file: information_retrieval/index
+  sections:
+      - file: information_retrieval/search_fundamentals
+      - file: information_retrieval/semantic_search
+      - file: information_retrieval/learning_to_rank

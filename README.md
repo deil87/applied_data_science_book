@@ -61,3 +61,8 @@ Yes, your understanding is correct: a **Jupyter Book might require many Python d
 
 - Jupyter Book **can have many dependencies collectively**, as each notebook may require different Python packages.
 - Often all are installed in one environment for simplicity.
+
+### Backlog
+
+Things to incorporate into the book:
+- see `backlog` folder

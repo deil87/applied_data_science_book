@@ -20,7 +20,12 @@ This book showcases applied data science through practical applications in diver
 - Sports Analytics and Performance Optimization
 - Healthcare and Biomedical Data Applications
 - Marketing Analytics and Customer Insights
+    - marketing attribution
+    - marketing effectiveness evaluation ( conversion rate, acquisition cost, CLV)
+    - retention, engagement and churn analysis
 - Environmental Monitoring and Climate Science
 - Algorithmic trading 
+- Risks assesment
+- Quality control and manufacturing automation
 
 Each chapter covers real-world problems, data science techniques used in these fields, and best practices to provide you with relevant skills and insights for applied data science careers.

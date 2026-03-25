@@ -28,7 +28,7 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b76e3c8a" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
     <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
@@ -198,10 +198,33 @@
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Sports Analytics and Performance Optimization</a></li>
 
 <li class="toctree-l1"><a class="reference internal" href="fraud_detection.html">Fraud detection</a></li>
-<li class="toctree-l1"><a class="reference internal" href="marketing.html">Marketing Analytics and Customer Insights</a></li>
-<li class="toctree-l1"><a class="reference internal" href="satellite.html">Satellite Imagery and Remote Sensing</a></li>
-<li class="toctree-l1"><a class="reference internal" href="algorithmic_trading.html">Algorithmic trading</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="marketing.html">Marketing Analytics and Customer Insights</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="retention_engagement_churn.html">Marketing Engagement</a></li>
 
+
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="satellite.html">Satellite Imagery and Remote Sensing</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="algorithmic_trading.html">Algorithmic trading</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="algorithmic_trading_electricity_trading.html">Energy tender pricing</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="risk_assesment.html">Risk assesment:</a></li>
+
+
+
+
+
+
+
+
+
+<li class="toctree-l1 has-children"><a class="reference internal" href="information_retrieval/index.html">Information Retrieval, Search and Ranking</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="information_retrieval/search_fundamentals.html">Search Fundamentals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="information_retrieval/semantic_search.html">Semantic Search</a></li>
+<li class="toctree-l2"><a class="reference internal" href="information_retrieval/learning_to_rank.html">Learning to Rank</a></li>
+</ul>
+</details></li>
 </ul>
 
     </div>
@@ -488,36 +511,70 @@ document.write(`
 <h2>The plan<a class="headerlink" href="#the-plan" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">tensorflow</span> <span class="k">as</span> <span class="nn">tf</span>
-<span class="kn">from</span> <span class="nn">tensorflow.keras</span> <span class="kn">import</span> <span class="n">layers</span><span class="p">,</span> <span class="n">Model</span><span class="p">,</span> <span class="n">Input</span><span class="p">,</span> <span class="n">initializers</span>
-<span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">date</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">os</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">tensorflow</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">tf</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">tensorflow.keras</span><span class="w"> </span><span class="kn">import</span> <span class="n">layers</span><span class="p">,</span> <span class="n">Model</span><span class="p">,</span> <span class="n">Input</span><span class="p">,</span> <span class="n">initializers</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">date</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
 
     
-<span class="kn">from</span> <span class="nn">competition_manager</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">competition_manager</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="ne">ImportError</span><span class="g g-Whitespace">                               </span>Traceback (most recent call last)
 <span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">tensorflow</span> <span class="k">as</span> <span class="nn">tf</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">from</span> <span class="nn">tensorflow.keras</span> <span class="kn">import</span> <span class="n">layers</span><span class="p">,</span> <span class="n">Model</span><span class="p">,</span> <span class="n">Input</span><span class="p">,</span> <span class="n">initializers</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">date</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">import</span><span class="w"> </span><span class="nn">tensorflow</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">tf</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">from</span><span class="w"> </span><span class="nn">tensorflow.keras</span><span class="w"> </span><span class="kn">import</span> <span class="n">layers</span><span class="p">,</span> <span class="n">Model</span><span class="p">,</span> <span class="n">Input</span><span class="p">,</span> <span class="n">initializers</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">date</span>
 
-<span class="ne">ModuleNotFoundError</span>: No module named &#39;tensorflow&#39;
+<span class="n">File</span> <span class="o">~/</span><span class="n">Development</span><span class="o">/</span><span class="n">applied_ds_book</span><span class="o">/</span><span class="n">adsb_env</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.12</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">tensorflow</span><span class="o">/</span><span class="fm">__init__</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">40</span>
+<span class="g g-Whitespace">     </span><span class="mi">37</span> <span class="n">_os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">setdefault</span><span class="p">(</span><span class="s2">&quot;ENABLE_RUNTIME_UPTIME_TELEMETRY&quot;</span><span class="p">,</span> <span class="s2">&quot;1&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">39</span> <span class="c1"># Do not remove this line; See https://github.com/tensorflow/tensorflow/issues/42596</span>
+<span class="ne">---&gt; </span><span class="mi">40</span> <span class="kn">from</span><span class="w"> </span><span class="nn">tensorflow.python</span><span class="w"> </span><span class="kn">import</span> <span class="n">pywrap_tensorflow</span> <span class="k">as</span> <span class="n">_pywrap_tensorflow</span>  <span class="c1"># pylint: disable=unused-import</span>
+<span class="g g-Whitespace">     </span><span class="mi">41</span> <span class="kn">from</span><span class="w"> </span><span class="nn">tensorflow.python.tools</span><span class="w"> </span><span class="kn">import</span> <span class="n">module_util</span> <span class="k">as</span> <span class="n">_module_util</span>
+<span class="g g-Whitespace">     </span><span class="mi">42</span> <span class="kn">from</span><span class="w"> </span><span class="nn">tensorflow.python.util.lazy_loader</span><span class="w"> </span><span class="kn">import</span> <span class="n">KerasLazyLoader</span> <span class="k">as</span> <span class="n">_KerasLazyLoader</span>
+
+<span class="n">File</span> <span class="o">~/</span><span class="n">Development</span><span class="o">/</span><span class="n">applied_ds_book</span><span class="o">/</span><span class="n">adsb_env</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.12</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">tensorflow</span><span class="o">/</span><span class="n">python</span><span class="o">/</span><span class="n">pywrap_tensorflow</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">34</span>
+<span class="g g-Whitespace">     </span><span class="mi">29</span> <span class="kn">from</span><span class="w"> </span><span class="nn">tensorflow.python.platform</span><span class="w"> </span><span class="kn">import</span> <span class="n">self_check</span>
+<span class="g g-Whitespace">     </span><span class="mi">31</span> <span class="c1"># TODO(mdan): Cleanup antipattern: import for side effects.</span>
+<span class="g g-Whitespace">     </span><span class="mi">32</span> 
+<span class="g g-Whitespace">     </span><span class="mi">33</span> <span class="c1"># Perform pre-load sanity checks in order to produce a more actionable error.</span>
+<span class="ne">---&gt; </span><span class="mi">34</span> <span class="n">self_check</span><span class="o">.</span><span class="n">preload_check</span><span class="p">()</span>
+<span class="g g-Whitespace">     </span><span class="mi">36</span> <span class="c1"># pylint: disable=wildcard-import,g-import-not-at-top,unused-import,line-too-long</span>
+<span class="g g-Whitespace">     </span><span class="mi">38</span> <span class="k">try</span><span class="p">:</span>
+<span class="g g-Whitespace">     </span><span class="mi">39</span>   <span class="c1"># This import is expected to fail if there is an explicit shared object</span>
+<span class="g g-Whitespace">     </span><span class="mi">40</span>   <span class="c1"># dependency (with_framework_lib=true), since we do not need RTLD_GLOBAL.</span>
+
+<span class="nn">File ~/Development/applied_ds_book/adsb_env/lib/python3.12/site-packages/tensorflow/python/platform/self_check.py:63,</span> in <span class="ni">preload_check</span><span class="nt">()</span>
+<span class="g g-Whitespace">     </span><span class="mi">50</span>       <span class="k">raise</span> <span class="ne">ImportError</span><span class="p">(</span>
+<span class="g g-Whitespace">     </span><span class="mi">51</span>           <span class="s2">&quot;Could not find the DLL(s) </span><span class="si">%r</span><span class="s2">. TensorFlow requires that these DLLs &quot;</span>
+<span class="g g-Whitespace">     </span><span class="mi">52</span>           <span class="s2">&quot;be installed in a directory that is named in your </span><span class="si">%%</span><span class="s2">PATH</span><span class="si">%%</span><span class="s2"> &quot;</span>
+   <span class="p">(</span><span class="o">...</span><span class="p">)</span>     <span class="mi">56</span>           <span class="s2">&quot;https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads&quot;</span>
+<span class="g g-Whitespace">     </span><span class="mi">57</span>           <span class="o">%</span> <span class="s2">&quot; or &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">missing</span><span class="p">))</span>
+<span class="g g-Whitespace">     </span><span class="mi">58</span> <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">     </span><span class="mi">59</span>   <span class="c1"># Load a library that performs CPU feature guard checking.  Doing this here</span>
+<span class="g g-Whitespace">     </span><span class="mi">60</span>   <span class="c1"># as a preload check makes it more likely that we detect any CPU feature</span>
+<span class="g g-Whitespace">     </span><span class="mi">61</span>   <span class="c1"># incompatibilities before we trigger them (which would typically result in</span>
+<span class="g g-Whitespace">     </span><span class="mi">62</span>   <span class="c1"># SIGILL).</span>
+<span class="ne">---&gt; </span><span class="mi">63</span>   <span class="kn">from</span><span class="w"> </span><span class="nn">tensorflow.python.platform</span><span class="w"> </span><span class="kn">import</span> <span class="n">_pywrap_cpu_feature_guard</span>
+<span class="g g-Whitespace">     </span><span class="mi">64</span>   <span class="n">_pywrap_cpu_feature_guard</span><span class="o">.</span><span class="n">InfoAboutUnusedCPUFeatures</span><span class="p">()</span>
+
+<span class="ne">ImportError</span>: dlopen(/Users/deil/Development/applied_ds_book/adsb_env/lib/python3.12/site-packages/tensorflow/python/platform/_pywrap_cpu_feature_guard.so, 0x0002): Library not loaded: @rpath/libtensorflow_cc.2.dylib
+  <span class="n">Referenced</span> <span class="n">from</span><span class="p">:</span> <span class="o">&lt;</span><span class="mi">08</span><span class="n">AE4C03</span><span class="o">-</span><span class="mi">12</span><span class="n">B0</span><span class="o">-</span><span class="mi">3</span><span class="n">A55</span><span class="o">-</span><span class="n">BA00</span><span class="o">-</span><span class="mi">5052</span><span class="n">AFBC19E5</span><span class="o">&gt;</span> <span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">deil</span><span class="o">/</span><span class="n">Development</span><span class="o">/</span><span class="n">applied_ds_book</span><span class="o">/</span><span class="n">adsb_env</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.12</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">tensorflow</span><span class="o">/</span><span class="n">python</span><span class="o">/</span><span class="n">_pywrap_tensorflow_internal</span><span class="o">.</span><span class="n">so</span>
+  <span class="n">Reason</span><span class="p">:</span> <span class="n">tried</span><span class="p">:</span> <span class="s1">&#39;/Users/deil/Development/applied_ds_book/adsb_env/lib/python3.12/site-packages/tensorflow/python/../../_solib_darwin_arm64/_U_S_Stensorflow_Spython_C_Upywrap_Utensorflow_Uinternal.so_Ucclib___Utensorflow/libtensorflow_cc.2.dylib&#39;</span> <span class="p">(</span><span class="n">no</span> <span class="n">such</span> <span class="n">file</span><span class="p">),</span> <span class="s1">&#39;/Users/deil/Development/applied_ds_book/adsb_env/lib/python3.12/site-packages/tensorflow/python/_pywrap_tensorflow_internal.so.runfiles/org_tensorflow/_solib_darwin_arm64/_U_S_Stensorflow_Spython_C_Upywrap_Utensorflow_Uinternal.so_Ucclib___Utensorflow/libtensorflow_cc.2.dylib&#39;</span> <span class="p">(</span><span class="n">no</span> <span class="n">such</span> <span class="n">file</span><span class="p">),</span> <span class="s1">&#39;/Users/deil/Development/applied_ds_book/adsb_env/lib/python3.12/site-packages/tensorflow/python/../../_solib_darwin_arm64/_Utensorflow/libtensorflow_cc.2.dylib&#39;</span> <span class="p">(</span><span class="n">no</span> <span class="n">such</span> <span class="n">file</span><span class="p">),</span> <span class="s1">&#39;/Users/deil/Development/applied_ds_book/adsb_env/lib/python3.12/site-packages/tensorflow/python/_pywrap_tensorflow_internal.so.runfiles/org_tensorflow/_solib_darwin_arm64/_Utensorflow/libtensorflow_cc.2.dylib&#39;</span> <span class="p">(</span><span class="n">no</span> <span class="n">such</span> <span class="n">file</span><span class="p">),</span> <span class="s1">&#39;/Users/deil/Development/applied_ds_book/adsb_env/lib/python3.12/site-packages/tensorflow/python/libtensorflow_cc.2.dylib&#39;</span> <span class="p">(</span><span class="n">no</span> <span class="n">such</span> <span class="n">file</span><span class="p">),</span> <span class="s1">&#39;/Users/deil/Development/applied_ds_book/adsb_env/lib/python3.12/site-packages/tensorflow/python/../libtensorflow_cc.2.dylib&#39;</span> <span class="p">(</span><span class="n">no</span> <span class="n">such</span> <span class="n">file</span><span class="p">),</span> <span class="s1">&#39;/Users/deil/Development/applied_ds_book/adsb_env/lib/python3.12/site-packages/tensorflow/python/platform/../../../_solib_darwin_arm64/_U_S_Stensorflow_Clibtensorflow_Uframework_Uimport_Ulib___Utensorflow/libtensorflow_cc.2.dylib&#39;</span> <span class="p">(</span><span class="n">no</span> <span class="n">such</span> <span class="n">file</span><span class="p">),</span> <span class="s1">&#39;/Users/deil/Development/applied_ds_book/adsb_env/lib/python3.12/site-packages/tensorflow/python/platform/_pywrap_cpu_feature_guard.so.runfiles/org_tensorflow/_solib_darwin_arm64/_U_S_Stensorflow_Clibtensorflow_Uframework_Uimport_Ulib___Utensorflow/libtensorflow_cc.2.dylib&#39;</span> <span class="p">(</span><span class="n">no</span> <span class="n">such</span> <span class="n">file</span><span class="p">),</span> <span class="s1">&#39;/Users/deil/Development/applied_ds_book/adsb_env/lib/python3.12/site-packages/tensorflow/python/platform/../../../_solib_darwin_arm64/_U_S_Stensorflow_Spython_C_Upywrap_Utensorflow_Uinternal_Umacos___Utensorflow_Spython/libtensorflow_cc.2.dylib&#39;</span> <span class="p">(</span><span class="n">no</span> <span class="n">such</span> <span class="n">file</span><span class="p">),</span> <span class="s1">&#39;/Users/deil/Development/applied_ds_book/adsb_env/lib/python3.12/site-packages/tensorflow/python/platform/_pywrap_cpu_feature_guard.so.runfiles/org_tensorflow/_solib_darwin_arm64/_U_S_Stensorflow_Spython_C_Upywrap_Utensorflow_Uinternal_Umacos___Utensorflow_Spython/libtensorflow_cc.2.dylib&#39;</span> <span class="p">(</span><span class="n">no</span> <span class="n">such</span> <span class="n">file</span><span class="p">),</span> <span class="s1">&#39;/Users/deil/Development/applied_ds_book/adsb_env/lib/python3.12/site-packages/tensorflow/python/platform/libtensorflow_cc.2.dylib&#39;</span> <span class="p">(</span><span class="n">no</span> <span class="n">such</span> <span class="n">file</span><span class="p">),</span> <span class="s1">&#39;/Users/deil/Development/applied_ds_book/adsb_env/lib/python3.12/site-packages/tensorflow/python/platform/../libtensorflow_cc.2.dylib&#39;</span> <span class="p">(</span><span class="n">no</span> <span class="n">such</span> <span class="n">file</span><span class="p">),</span> <span class="s1">&#39;/Users/deil/Development/applied_ds_book/adsb_env/lib/python3.12/site-packages/tensorflow/python/platform/../../libtensorflow_cc.2.dylib&#39;</span> <span class="p">(</span><span class="n">no</span> <span class="n">such</span> <span class="n">file</span><span class="p">),</span> <span class="s1">&#39;/Users/deil/Development/applied_ds_book/adsb_env/lib/python3.12/site-packages/tensorflow/python/platform/../../../_solib_darwin_arm64/_U_S_Stensorflow_Clibtensorflow_Uframework_Uimport_Ulib___Utensorflow/libtensorflow_cc.2.dylib&#39;</span> <span class="p">(</span><span class="n">no</span> <span class="n">such</span> <span class="n">file</span><span class="p">),</span> <span class="s1">&#39;/Users/deil/Development/applied_ds_book/adsb_env/lib/python3.12/site-packages/tensorflow/python/platform/_pywrap_cpu_feature_guard.so.runfiles/org_tensorflow/_solib_darwin_arm64/_U_S_Stensorflow_Clibtensorflow_Uframework_Uimport_Ulib___Utensorflow/libtensorflow_cc.2.dylib&#39;</span> <span class="p">(</span><span class="n">no</span> <span class="n">such</span> <span class="n">file</span><span class="p">),</span> <span class="s1">&#39;/Users/deil/Development/applied_ds_book/adsb_env/lib/python3.12/site-packages/tensorflow/python/platform/../../../_solib_darwin_arm64/_U_S_Stensorflow_Spython_C_Upywrap_Utensorflow_Uinternal_Umacos___Utensorflow_Spython/libtensorflow_cc.2.dylib&#39;</span> <span class="p">(</span><span class="n">no</span> <span class="n">such</span> <span class="n">file</span><span class="p">),</span> <span class="s1">&#39;/Users/deil/Development/applied_ds_book/adsb_env/lib/python3.12/site-packages/tensorflow/python/platform/_pywrap_cpu_feature_guard.so.runfiles/org_tensorflow/_solib_darwin_arm64/_U_S_Stensorflow_Spython_C_Upywrap_Utensorflow_Uinternal_Umacos___Utensorflow_Spython/libtensorflow_cc.2.dylib&#39;</span> <span class="p">(</span><span class="n">no</span> <span class="n">such</span> <span class="n">file</span><span class="p">),</span> <span class="s1">&#39;/Users/deil/Development/applied_ds_book/adsb_env/lib/python3.12/site-packages/tensorflow/python/platform/libtensorflow_cc.2.dylib&#39;</span> <span class="p">(</span><span class="n">no</span> <span class="n">such</span> <span class="n">file</span><span class="p">),</span> <span class="s1">&#39;/Users/deil/Development/applied_ds_book/adsb_env/lib/python3.12/site-packages/tensorflow/python/platform/../libtensorflow_cc.2.dylib&#39;</span> <span class="p">(</span><span class="n">no</span> <span class="n">such</span> <span class="n">file</span><span class="p">),</span> <span class="s1">&#39;/Users/deil/Development/applied_ds_book/adsb_env/lib/python3.12/site-packages/tensorflow/python/platform/../../libtensorflow_cc.2.dylib&#39;</span> <span class="p">(</span><span class="n">no</span> <span class="n">such</span> <span class="n">file</span><span class="p">),</span> <span class="s1">&#39;/opt/anaconda3/bin/../lib/libtensorflow_cc.2.dylib&#39;</span> <span class="p">(</span><span class="n">no</span> <span class="n">such</span> <span class="n">file</span><span class="p">),</span> <span class="s1">&#39;/opt/anaconda3/bin/../lib/libtensorflow_cc.2.dylib&#39;</span> <span class="p">(</span><span class="n">no</span> <span class="n">such</span> <span class="n">file</span><span class="p">),</span> <span class="s1">&#39;/usr/local/lib/libtensorflow_cc.2.dylib&#39;</span> <span class="p">(</span><span class="n">no</span> <span class="n">such</span> <span class="n">file</span><span class="p">),</span> <span class="s1">&#39;/usr/lib/libtensorflow_cc.2.dylib&#39;</span> <span class="p">(</span><span class="n">no</span> <span class="n">such</span> <span class="n">file</span><span class="p">,</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">dyld</span> <span class="n">cache</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">random</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">random</span>
 
 
-<span class="k">def</span> <span class="nf">set_seed</span><span class="p">(</span><span class="n">seed</span><span class="o">=</span><span class="mi">42</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">set_seed</span><span class="p">(</span><span class="n">seed</span><span class="o">=</span><span class="mi">42</span><span class="p">):</span>
     <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="n">seed</span><span class="p">)</span>                  <span class="c1"># Fix NumPy random seed</span>
     <span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="n">seed</span><span class="p">)</span>                     <span class="c1"># Fix Python built-in random seed</span>
     <span class="n">tf</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">set_seed</span><span class="p">(</span><span class="n">seed</span><span class="p">)</span>              <span class="c1"># Fix TensorFlow random seed</span>
@@ -539,7 +596,7 @@ document.write(`
 <h3>Calculating team’s strength based on players individual strengths and rule-based interactions<a class="headerlink" href="#calculating-team-s-strength-based-on-players-individual-strengths-and-rule-based-interactions" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">calculate_team_strength</span><span class="p">(</span><span class="n">team_players</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">calculate_team_strength</span><span class="p">(</span><span class="n">team_players</span><span class="p">):</span>
     <span class="c1"># Base strength sum</span>
     <span class="n">strength</span> <span class="o">=</span> <span class="n">player_strengths</span><span class="p">[</span><span class="n">team_players</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Base strength of team </span><span class="si">{</span><span class="n">team_players</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">strength</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
@@ -618,7 +675,7 @@ document.write(`
 <span class="n">teamB_data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">NUM_GAMES</span><span class="p">,</span> <span class="n">MAX_TEAM_SIZE</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
 <span class="n">outcomes</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">NUM_GAMES</span><span class="p">)</span>
 
-<span class="k">def</span> <span class="nf">drop_zeroes_for_sum</span><span class="p">(</span><span class="n">players_strengths</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">drop_zeroes_for_sum</span><span class="p">(</span><span class="n">players_strengths</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">players_strengths</span><span class="p">[</span><span class="n">players_strengths</span> <span class="o">!=</span><span class="mi">0</span><span class="p">]</span>
 
 <span class="k">for</span> <span class="n">game_i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">NUM_GAMES</span><span class="p">):</span>
@@ -1360,7 +1417,7 @@ Team B strengths 4.4060731797801145
 <span class="n">teamB_embeds</span> <span class="o">=</span> <span class="n">player_embedding</span><span class="p">(</span><span class="n">teamB_input</span><span class="p">)</span>
 
 <span class="c1">#Self-attention block (respects masks automatically if using Functional API)</span>
-<span class="k">def</span> <span class="nf">self_attention_block</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">name_prefix</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">self_attention_block</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">name_prefix</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">):</span>
     <span class="n">attn_output</span> <span class="o">=</span> <span class="n">layers</span><span class="o">.</span><span class="n">MultiHeadAttention</span><span class="p">(</span>
         <span class="n">num_heads</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span>
         <span class="n">key_dim</span><span class="o">=</span><span class="n">PLAYER_EMB_DIM</span><span class="p">,</span>
@@ -1492,8 +1549,8 @@ Team B strengths 4.4060731797801145
 <h2>Training the model<a class="headerlink" href="#training-the-model" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.model_selection</span><span class="w"> </span><span class="kn">import</span> <span class="n">train_test_split</span>
 
 <span class="c1"># Assume the following arrays from your dataset generation code:</span>
 <span class="c1"># teamA_data, teamB_data, labels (all np arrays)</span>
@@ -1507,12 +1564,12 @@ Team B strengths 4.4060731797801145
 <span class="c1"># For example, let&#39;s say you have your variable-size team transformer model as &#39;model&#39;</span>
 
 <span class="c1"># 3. Optional: callbacks for monitoring</span>
-<span class="kn">from</span> <span class="nn">tensorflow.keras.callbacks</span> <span class="kn">import</span> <span class="n">EarlyStopping</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">tensorflow.keras.callbacks</span><span class="w"> </span><span class="kn">import</span> <span class="n">EarlyStopping</span>
 
 <span class="n">early_stop</span> <span class="o">=</span> <span class="n">EarlyStopping</span><span class="p">(</span><span class="n">monitor</span><span class="o">=</span><span class="s1">&#39;val_loss&#39;</span><span class="p">,</span> <span class="n">patience</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">restore_best_weights</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
 <span class="c1"># Define a learning rate schedule function (step decay example)</span>
-<span class="k">def</span> <span class="nf">lr_schedule</span><span class="p">(</span><span class="n">epoch</span><span class="p">,</span> <span class="n">lr</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">lr_schedule</span><span class="p">(</span><span class="n">epoch</span><span class="p">,</span> <span class="n">lr</span><span class="p">):</span>
     <span class="n">drop_rate</span> <span class="o">=</span> <span class="mf">0.5</span>
     <span class="n">epochs_drop</span> <span class="o">=</span> <span class="mi">10</span>
     <span class="k">if</span> <span class="n">epoch</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">epoch</span> <span class="o">%</span> <span class="n">epochs_drop</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
@@ -1765,7 +1822,7 @@ Validation accuracy: 0.525
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 
 <span class="c1"># Assume &#39;history&#39; is the object returned by your call to model.fit(...)</span>
 
@@ -1819,18 +1876,18 @@ Validation accuracy: 0.525
 <h3>UMAP projection and visualization of players in 3D<a class="headerlink" href="#umap-projection-and-visualization-of-players-in-3d" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">umap</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">import</span> <span class="nn">plotly.graph_objs</span> <span class="k">as</span> <span class="nn">go</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">umap</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">plotly.graph_objs</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">go</span>
 
 <span class="c1"># Needed the following two lines to make pltoly chart rendered in the book</span>
-<span class="kn">import</span> <span class="nn">plotly.io</span> <span class="k">as</span> <span class="nn">pio</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">plotly.io</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pio</span>
 <span class="n">pio</span><span class="o">.</span><span class="n">renderers</span><span class="o">.</span><span class="n">default</span> <span class="o">=</span> <span class="s1">&#39;notebook&#39;</span>
 
 
 
-<span class="k">def</span> <span class="nf">umap_and_visualize</span><span class="p">(</span><span class="n">player_embeddings</span><span class="p">,</span> <span class="n">player_strengths</span><span class="p">,</span> <span class="n">marker_labels</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>  <span class="n">random_state</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">umap_and_visualize</span><span class="p">(</span><span class="n">player_embeddings</span><span class="p">,</span> <span class="n">player_strengths</span><span class="p">,</span> <span class="n">marker_labels</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>  <span class="n">random_state</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
     
     <span class="c1"># Embed to 3D</span>
     <span class="n">reducer</span> <span class="o">=</span> <span class="n">umap</span><span class="o">.</span><span class="n">UMAP</span><span class="p">(</span><span class="n">n_components</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="n">random_state</span><span class="p">,</span> <span class="n">n_jobs</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
@@ -5802,10 +5859,10 @@ if (outputEl) {{
 <h3>Calculate correlation of the embeddings with the original base strengths<a class="headerlink" href="#calculate-correlation-of-the-embeddings-with-the-original-base-strengths" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">pearsonr</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">scipy.stats</span><span class="w"> </span><span class="kn">import</span> <span class="n">pearsonr</span>
 
-<span class="k">def</span>  <span class="nf">compute_correlations_for_projected_dims</span><span class="p">(</span><span class="n">embeddings_nd</span><span class="p">,</span> <span class="n">player_strengths</span><span class="p">):</span>
+<span class="k">def</span><span class="w">  </span><span class="nf">compute_correlations_for_projected_dims</span><span class="p">(</span><span class="n">embeddings_nd</span><span class="p">,</span> <span class="n">player_strengths</span><span class="p">):</span>
 
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Compute the Pearson correlation coefficients between N-D embedding dimensions and player strengths.</span>
@@ -5876,7 +5933,7 @@ Average absolute correlation across 3 components: 0.0462
 <h2>KFold cross-validation and Hyperparameters search<a class="headerlink" href="#kfold-cross-validation-and-hyperparameters-search" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">build_model</span><span class="p">(</span><span class="n">num_players</span><span class="p">,</span> <span class="n">player_emb_dim</span><span class="p">,</span> <span class="n">max_team_size</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">build_model</span><span class="p">(</span><span class="n">num_players</span><span class="p">,</span> <span class="n">player_emb_dim</span><span class="p">,</span> <span class="n">max_team_size</span><span class="p">):</span>
 
     <span class="c1">#TODO max_team_size is not used??</span>
     
@@ -5899,7 +5956,7 @@ Average absolute correlation across 3 components: 0.0462
     <span class="n">teamB_embeds</span> <span class="o">=</span> <span class="n">player_embedding</span><span class="p">(</span><span class="n">teamB_input</span><span class="p">)</span>
     
     <span class="c1"># Self-attention block (respects masks automatically if using Functional API)</span>
-    <span class="k">def</span> <span class="nf">self_attention_block</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">name_prefix</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">self_attention_block</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">name_prefix</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">):</span>
         <span class="n">attn_output</span> <span class="o">=</span> <span class="n">layers</span><span class="o">.</span><span class="n">MultiHeadAttention</span><span class="p">(</span>
             <span class="n">num_heads</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span>
             <span class="n">key_dim</span><span class="o">=</span><span class="n">player_emb_dim</span><span class="p">,</span>
@@ -5948,9 +6005,9 @@ Average absolute correlation across 3 components: 0.0462
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
-<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">KFold</span>
-<span class="kn">from</span> <span class="nn">tensorflow.keras.callbacks</span> <span class="kn">import</span> <span class="n">EarlyStopping</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.model_selection</span><span class="w"> </span><span class="kn">import</span> <span class="n">train_test_split</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.model_selection</span><span class="w"> </span><span class="kn">import</span> <span class="n">KFold</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">tensorflow.keras.callbacks</span><span class="w"> </span><span class="kn">import</span> <span class="n">EarlyStopping</span>
 
 
 <span class="n">X</span> <span class="o">=</span> <span class="p">[</span><span class="n">teamA_data</span><span class="p">,</span> <span class="n">teamB_data</span><span class="p">]</span>
@@ -5959,7 +6016,7 @@ Average absolute correlation across 3 components: 0.0462
 <span class="n">early_stop</span> <span class="o">=</span> <span class="n">EarlyStopping</span><span class="p">(</span><span class="n">monitor</span><span class="o">=</span><span class="s1">&#39;val_loss&#39;</span><span class="p">,</span> <span class="n">patience</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">restore_best_weights</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
 <span class="c1"># Define a learning rate schedule function (step decay example)</span>
-<span class="k">def</span> <span class="nf">lr_schedule</span><span class="p">(</span><span class="n">epoch</span><span class="p">,</span> <span class="n">lr</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">lr_schedule</span><span class="p">(</span><span class="n">epoch</span><span class="p">,</span> <span class="n">lr</span><span class="p">):</span>
     <span class="n">drop_rate</span> <span class="o">=</span> <span class="mf">0.5</span>
     <span class="n">epochs_drop</span> <span class="o">=</span> <span class="mi">10</span>
     <span class="k">if</span> <span class="n">epoch</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">epoch</span> <span class="o">%</span> <span class="n">epochs_drop</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
@@ -6059,9 +6116,9 @@ Mean cross-validated loss: 0.1446
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Install if needed: pip install keras-tuner --upgrade</span>
-<span class="kn">import</span> <span class="nn">keras_tuner</span> <span class="k">as</span> <span class="nn">kt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">keras_tuner</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">kt</span>
     
-<span class="k">def</span> <span class="nf">build_model_cv</span><span class="p">(</span><span class="n">hp</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">build_model_cv</span><span class="p">(</span><span class="n">hp</span><span class="p">):</span>
     
     
     <span class="n">player_emb_dim</span> <span class="o">=</span> <span class="n">hp</span><span class="o">.</span><span class="n">Choice</span><span class="p">(</span><span class="s1">&#39;player_emb_dim&#39;</span><span class="p">,</span> <span class="p">[</span><span class="mi">8</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">32</span><span class="p">])</span>
@@ -6089,7 +6146,7 @@ Mean cross-validated loss: 0.1446
     <span class="n">teamB_embeds</span> <span class="o">=</span> <span class="n">player_embedding</span><span class="p">(</span><span class="n">teamB_input</span><span class="p">)</span>
     
     <span class="c1"># Self-attention block (respects masks automatically if using Functional API)</span>
-    <span class="k">def</span> <span class="nf">self_attention_block</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">name_prefix</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">self_attention_block</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">name_prefix</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">):</span>
         <span class="n">attn_output</span> <span class="o">=</span> <span class="n">layers</span><span class="o">.</span><span class="n">MultiHeadAttention</span><span class="p">(</span>
             <span class="n">num_heads</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span>
             <span class="n">key_dim</span><span class="o">=</span><span class="n">player_emb_dim</span><span class="p">,</span>
@@ -6141,7 +6198,7 @@ Mean cross-validated loss: 0.1446
 <h3>Defining RandomSearch<a class="headerlink" href="#defining-randomsearch" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">hyperparameter_search</span><span class="p">(</span><span class="n">hypermodel_fn</span><span class="p">,</span> <span class="n">max_trials</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span> <span class="n">callbacks</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">hyperparameter_search</span><span class="p">(</span><span class="n">hypermodel_fn</span><span class="p">,</span> <span class="n">max_trials</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span> <span class="n">callbacks</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
     <span class="n">k</span> <span class="o">=</span> <span class="mi">5</span>
     <span class="n">kf</span> <span class="o">=</span> <span class="n">KFold</span><span class="p">(</span><span class="n">n_splits</span><span class="o">=</span><span class="n">k</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="n">seed_value</span><span class="p">)</span>
 
@@ -6288,7 +6345,7 @@ TypeError: &#39;NoneType&#39; object is not iterable
 <span class="g g-Whitespace">    </span><span class="mi">236</span> <span class="bp">self</span><span class="o">.</span><span class="n">on_search_end</span><span class="p">()</span>
 
 <span class="nn">File /opt/anaconda3/envs/footballman/lib/python3.12/site-packages/keras_tuner/src/engine/base_tuner.py:339,</span> in <span class="ni">BaseTuner.on_trial_end</span><span class="nt">(self, trial)</span>
-<span class="g g-Whitespace">    </span><span class="mi">333</span> <span class="k">def</span> <span class="nf">on_trial_end</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">trial</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">333</span> <span class="k">def</span><span class="w"> </span><span class="nf">on_trial_end</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">trial</span><span class="p">):</span>
 <span class="g g-Whitespace">    </span><span class="mi">334</span><span class="w">     </span><span class="sd">&quot;&quot;&quot;Called at the end of a trial.</span>
 <span class="g g-Whitespace">    </span><span class="mi">335</span><span class="sd"> </span>
 <span class="g g-Whitespace">    </span><span class="mi">336</span><span class="sd">     Args:</span>
@@ -6342,7 +6399,7 @@ TypeError: &#39;NoneType&#39; object is not iterable
 <h3>Calculating average performance for best K selected hyperparameters/trials<a class="headerlink" href="#calculating-average-performance-for-best-k-selected-hyperparameters-trials" title="Link to this heading">#</a></h3>
 <div class="cell tag_scroll-output docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">evaluate_avg_hps_performance</span><span class="p">(</span><span class="n">all_best_hps</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">evaluate_avg_hps_performance</span><span class="p">(</span><span class="n">all_best_hps</span><span class="p">):</span>
     <span class="n">avg_hps_losses</span> <span class="o">=</span> <span class="p">[]</span>
 
     <span class="k">for</span> <span class="n">hp</span><span class="p">,</span> <span class="n">mse</span> <span class="ow">in</span> <span class="n">all_best_hps</span><span class="p">:</span>
@@ -9019,7 +9076,7 @@ Validation losses: [0.3111003637313843, 0.08037667721509933, 0.07782571017742157
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">selecting_best_avg_hps</span><span class="p">(</span><span class="n">avg_hps_losses</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">selecting_best_avg_hps</span><span class="p">(</span><span class="n">avg_hps_losses</span><span class="p">):</span>
     <span class="n">best_avg_hp</span> <span class="o">=</span> <span class="kc">None</span>
     <span class="n">best_avg_hp_val_score</span> <span class="o">=</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">inf</span>
     <span class="k">for</span> <span class="n">hp</span><span class="p">,</span> <span class="n">avg</span> <span class="ow">in</span> <span class="n">avg_hps_losses</span><span class="p">:</span>
@@ -9322,7 +9379,7 @@ Average absolute correlation across 3 components: 0.6502
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>    
-<span class="k">def</span> <span class="nf">build_model_cv_atten</span><span class="p">(</span><span class="n">hp</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">build_model_cv_atten</span><span class="p">(</span><span class="n">hp</span><span class="p">):</span>
     
     <span class="n">attention_heads</span> <span class="o">=</span> <span class="n">hp</span><span class="o">.</span><span class="n">Int</span><span class="p">(</span><span class="s1">&#39;attention_heads&#39;</span><span class="p">,</span> <span class="n">min_value</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">max_value</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
     <span class="n">attention_dropout_rate</span> <span class="o">=</span> <span class="n">hp</span><span class="o">.</span><span class="n">Float</span><span class="p">(</span><span class="s1">&#39;attention_dropout_rate&#39;</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)</span>
@@ -9352,7 +9409,7 @@ Average absolute correlation across 3 components: 0.6502
     <span class="n">teamB_embeds</span> <span class="o">=</span> <span class="n">player_embedding</span><span class="p">(</span><span class="n">teamB_input</span><span class="p">)</span>
     
     <span class="c1"># Self-attention block (respects masks automatically if using Functional API)</span>
-    <span class="k">def</span> <span class="nf">self_attention_block</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">name_prefix</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">self_attention_block</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">name_prefix</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">):</span>
         <span class="n">attn_output</span> <span class="o">=</span> <span class="n">layers</span><span class="o">.</span><span class="n">MultiHeadAttention</span><span class="p">(</span>
             <span class="n">num_heads</span><span class="o">=</span><span class="n">attention_heads</span><span class="p">,</span>
             <span class="n">key_dim</span><span class="o">=</span><span class="n">player_emb_dim</span><span class="p">,</span>
@@ -9477,7 +9534,7 @@ TypeError: &#39;NoneType&#39; object is not iterable
 <span class="g g-Whitespace">    </span><span class="mi">236</span> <span class="bp">self</span><span class="o">.</span><span class="n">on_search_end</span><span class="p">()</span>
 
 <span class="nn">File /opt/anaconda3/envs/footballman/lib/python3.12/site-packages/keras_tuner/src/engine/base_tuner.py:339,</span> in <span class="ni">BaseTuner.on_trial_end</span><span class="nt">(self, trial)</span>
-<span class="g g-Whitespace">    </span><span class="mi">333</span> <span class="k">def</span> <span class="nf">on_trial_end</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">trial</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">333</span> <span class="k">def</span><span class="w"> </span><span class="nf">on_trial_end</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">trial</span><span class="p">):</span>
 <span class="g g-Whitespace">    </span><span class="mi">334</span><span class="w">     </span><span class="sd">&quot;&quot;&quot;Called at the end of a trial.</span>
 <span class="g g-Whitespace">    </span><span class="mi">335</span><span class="sd"> </span>
 <span class="g g-Whitespace">    </span><span class="mi">336</span><span class="sd">     Args:</span>
@@ -12764,12 +12821,12 @@ Average absolute correlation across 3 components: 0.6230
 <p>We don’t need to change a model specification itself. Callbacks can be added through a keras tuner</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">tensorflow.keras.callbacks</span> <span class="kn">import</span> <span class="n">EarlyStopping</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">tensorflow.keras.callbacks</span><span class="w"> </span><span class="kn">import</span> <span class="n">EarlyStopping</span>
 
 <span class="n">early_stop</span> <span class="o">=</span> <span class="n">EarlyStopping</span><span class="p">(</span><span class="n">monitor</span><span class="o">=</span><span class="s1">&#39;val_loss&#39;</span><span class="p">,</span> <span class="n">patience</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">restore_best_weights</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
 <span class="c1"># Define a learning rate schedule function (step decay example)</span>
-<span class="k">def</span> <span class="nf">lr_schedule</span><span class="p">(</span><span class="n">epoch</span><span class="p">,</span> <span class="n">lr</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">lr_schedule</span><span class="p">(</span><span class="n">epoch</span><span class="p">,</span> <span class="n">lr</span><span class="p">):</span>
     <span class="n">drop_rate</span> <span class="o">=</span> <span class="mf">0.5</span>
     <span class="n">epochs_drop</span> <span class="o">=</span> <span class="mi">10</span>
     <span class="k">if</span> <span class="n">epoch</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">epoch</span> <span class="o">%</span> <span class="n">epochs_drop</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
@@ -12891,7 +12948,7 @@ dropout_rate: 0.2
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">train_best_hps_model</span><span class="p">(</span><span class="n">best_hps</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">train_best_hps_model</span><span class="p">(</span><span class="n">best_hps</span><span class="p">):</span>
     <span class="n">avg_hps_losses</span> <span class="o">=</span> <span class="n">evaluate_avg_hps_performance</span><span class="p">(</span><span class="n">best_hps</span><span class="p">)</span>
     
     <span class="n">best_avg_hp</span><span class="p">,</span> <span class="n">best_avg_hp_val_score</span> <span class="o">=</span> <span class="n">selecting_best_avg_hps</span><span class="p">(</span><span class="n">avg_hps_losses</span><span class="p">)</span>
@@ -15659,7 +15716,7 @@ Epoch 50/50
 <h3>Plotting results<a class="headerlink" href="#plotting-results" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">analyze_players_embeddings</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">player_strengths</span><span class="p">,</span> <span class="n">marker_labels</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">random_state</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">analyze_players_embeddings</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">player_strengths</span><span class="p">,</span> <span class="n">marker_labels</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">random_state</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
     <span class="n">player_embedding_layer</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">get_layer</span><span class="p">(</span><span class="s2">&quot;player_embedding&quot;</span><span class="p">)</span>
     <span class="n">embeddings</span> <span class="o">=</span> <span class="n">player_embedding_layer</span><span class="o">.</span><span class="n">get_weights</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>
     
@@ -15763,7 +15820,7 @@ if (outputEl) {{
 <h3>Pairwise interactions function<a class="headerlink" href="#pairwise-interactions-function" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">pairwise_interactions</span><span class="p">(</span><span class="n">embeddings</span><span class="p">,</span> <span class="n">mask</span><span class="p">,</span> <span class="n">pairwise_dense</span><span class="p">,</span> <span class="n">debug</span> <span class="o">=</span> <span class="kc">False</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">pairwise_interactions</span><span class="p">(</span><span class="n">embeddings</span><span class="p">,</span> <span class="n">mask</span><span class="p">,</span> <span class="n">pairwise_dense</span><span class="p">,</span> <span class="n">debug</span> <span class="o">=</span> <span class="kc">False</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    embeddings: Tensor of shape (batch, seq_len, emb_dim)</span>
 <span class="sd">    mask: Boolean tensor of shape (batch, seq_len) indicating valid tokens (not padded)</span>
@@ -15783,7 +15840,7 @@ if (outputEl) {{
     <span class="c1"># We&#39;ll generate pair indices dynamically for maximum sequence length:</span>
     <span class="n">i_indices</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="n">j_indices</span> <span class="o">=</span> <span class="p">[]</span>
-    <span class="k">def</span> <span class="nf">batch_pair_indices</span><span class="p">(</span><span class="n">batch_size</span><span class="p">,</span> <span class="n">seq_len</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">batch_pair_indices</span><span class="p">(</span><span class="n">batch_size</span><span class="p">,</span> <span class="n">seq_len</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Generate pair indices (i, j) for each element in batch,</span>
 <span class="sd">        where i &lt; j and i, j in [0, seq_len).</span>
@@ -15890,9 +15947,9 @@ if (outputEl) {{
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>  
-<span class="kn">from</span> <span class="nn">itertools</span> <span class="kn">import</span> <span class="n">combinations</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">itertools</span><span class="w"> </span><span class="kn">import</span> <span class="n">combinations</span>
     
-<span class="k">def</span> <span class="nf">test_pairwise</span><span class="p">():</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">test_pairwise</span><span class="p">():</span>
     <span class="n">batch_size</span> <span class="o">=</span> <span class="mi">2</span>
     <span class="n">seq_len</span> <span class="o">=</span> <span class="mi">4</span>
     <span class="n">emb_dim</span> <span class="o">=</span> <span class="mi">3</span>
@@ -15981,7 +16038,7 @@ array([[[ 4.,  5.,  6.,  1.,  2.,  3.],
 <h3>Build interaction model<a class="headerlink" href="#build-interaction-model" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">build_model_inter</span><span class="p">(</span><span class="n">hp</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">build_model_inter</span><span class="p">(</span><span class="n">hp</span><span class="p">):</span>
     
     <span class="n">attention_heads</span> <span class="o">=</span> <span class="n">hp</span><span class="o">.</span><span class="n">Int</span><span class="p">(</span><span class="s1">&#39;attention_heads&#39;</span><span class="p">,</span> <span class="n">min_value</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">max_value</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
     <span class="n">attention_dropout_rate</span> <span class="o">=</span> <span class="n">hp</span><span class="o">.</span><span class="n">Float</span><span class="p">(</span><span class="s1">&#39;attention_dropout_rate&#39;</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)</span>
@@ -16024,7 +16081,7 @@ array([[[ 4.,  5.,  6.,  1.,  2.,  3.],
 
     
     <span class="c1"># Self-attention block (respects masks automatically if using Functional API)</span>
-    <span class="k">def</span> <span class="nf">self_attention_block</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">name_prefix</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">self_attention_block</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">name_prefix</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">):</span>
         <span class="n">attn_output</span> <span class="o">=</span> <span class="n">layers</span><span class="o">.</span><span class="n">MultiHeadAttention</span><span class="p">(</span>
             <span class="n">num_heads</span><span class="o">=</span><span class="n">attention_heads</span><span class="p">,</span>
             <span class="n">key_dim</span><span class="o">=</span><span class="n">player_emb_dim</span><span class="p">,</span>
@@ -16106,12 +16163,12 @@ array([[[ 4.,  5.,  6.,  1.,  2.,  3.],
 <h3>Run interaction model<a class="headerlink" href="#run-interaction-model" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">tensorflow.keras.callbacks</span> <span class="kn">import</span> <span class="n">EarlyStopping</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">tensorflow.keras.callbacks</span><span class="w"> </span><span class="kn">import</span> <span class="n">EarlyStopping</span>
 
 <span class="n">early_stop</span> <span class="o">=</span> <span class="n">EarlyStopping</span><span class="p">(</span><span class="n">monitor</span><span class="o">=</span><span class="s1">&#39;val_loss&#39;</span><span class="p">,</span> <span class="n">patience</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">restore_best_weights</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
 <span class="c1"># Define a learning rate schedule function (step decay example)</span>
-<span class="k">def</span> <span class="nf">lr_schedule</span><span class="p">(</span><span class="n">epoch</span><span class="p">,</span> <span class="n">lr</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">lr_schedule</span><span class="p">(</span><span class="n">epoch</span><span class="p">,</span> <span class="n">lr</span><span class="p">):</span>
     <span class="n">drop_rate</span> <span class="o">=</span> <span class="mf">0.5</span>
     <span class="n">epochs_drop</span> <span class="o">=</span> <span class="mi">10</span>
     <span class="k">if</span> <span class="n">epoch</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">epoch</span> <span class="o">%</span> <span class="n">epochs_drop</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
@@ -21661,7 +21718,7 @@ if (outputEl) {{
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">datetime</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">datetime</span>
 
 <span class="n">historical_cometitions</span> <span class="o">=</span> <span class="p">[</span>
  <span class="n">Competition</span><span class="p">(</span><span class="n">team_a</span><span class="o">=</span><span class="p">[</span><span class="mi">17</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">22</span><span class="p">,</span> <span class="mi">13</span><span class="p">],</span> <span class="n">team_b</span><span class="o">=</span><span class="p">[</span><span class="mi">19</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">14</span><span class="p">],</span> <span class="n">score_diff</span><span class="o">=</span><span class="mi">11</span><span class="p">,</span> <span class="n">date</span><span class="o">=</span><span class="n">datetime</span><span class="o">.</span><span class="n">date</span><span class="p">(</span><span class="mi">2025</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">13</span><span class="p">),</span> <span class="n">scores_stats</span><span class="o">=</span><span class="p">{</span><span class="mi">5</span><span class="p">:</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">2</span><span class="p">:</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">16</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">19</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">17</span><span class="p">:</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">4</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">13</span><span class="p">:</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span> <span class="mi">5</span><span class="p">}),</span>
@@ -21739,12 +21796,12 @@ outcomes shape: (19,)
 <h3>Using same model and same hyperparameters<a class="headerlink" href="#using-same-model-and-same-hyperparameters" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">tensorflow.keras.callbacks</span> <span class="kn">import</span> <span class="n">EarlyStopping</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">tensorflow.keras.callbacks</span><span class="w"> </span><span class="kn">import</span> <span class="n">EarlyStopping</span>
 
 <span class="n">early_stop</span> <span class="o">=</span> <span class="n">EarlyStopping</span><span class="p">(</span><span class="n">monitor</span><span class="o">=</span><span class="s1">&#39;val_loss&#39;</span><span class="p">,</span> <span class="n">patience</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">restore_best_weights</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
 <span class="c1"># Define a learning rate schedule function (step decay example)</span>
-<span class="k">def</span> <span class="nf">lr_schedule</span><span class="p">(</span><span class="n">epoch</span><span class="p">,</span> <span class="n">lr</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">lr_schedule</span><span class="p">(</span><span class="n">epoch</span><span class="p">,</span> <span class="n">lr</span><span class="p">):</span>
     <span class="n">drop_rate</span> <span class="o">=</span> <span class="mf">0.5</span>
     <span class="n">epochs_drop</span> <span class="o">=</span> <span class="mi">10</span>
     <span class="k">if</span> <span class="n">epoch</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">epoch</span> <span class="o">%</span> <span class="n">epochs_drop</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
@@ -24674,12 +24731,12 @@ if (outputEl) {{
 <h3>Using version with interaction for real data<a class="headerlink" href="#using-version-with-interaction-for-real-data" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">tensorflow.keras.callbacks</span> <span class="kn">import</span> <span class="n">EarlyStopping</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">tensorflow.keras.callbacks</span><span class="w"> </span><span class="kn">import</span> <span class="n">EarlyStopping</span>
 
 <span class="n">early_stop</span> <span class="o">=</span> <span class="n">EarlyStopping</span><span class="p">(</span><span class="n">monitor</span><span class="o">=</span><span class="s1">&#39;val_loss&#39;</span><span class="p">,</span> <span class="n">patience</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">restore_best_weights</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
 <span class="c1"># Define a learning rate schedule function (step decay example)</span>
-<span class="k">def</span> <span class="nf">lr_schedule</span><span class="p">(</span><span class="n">epoch</span><span class="p">,</span> <span class="n">lr</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">lr_schedule</span><span class="p">(</span><span class="n">epoch</span><span class="p">,</span> <span class="n">lr</span><span class="p">):</span>
     <span class="n">drop_rate</span> <span class="o">=</span> <span class="mf">0.5</span>
     <span class="n">epochs_drop</span> <span class="o">=</span> <span class="mi">10</span>
     <span class="k">if</span> <span class="n">epoch</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">epoch</span> <span class="o">%</span> <span class="n">epochs_drop</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
