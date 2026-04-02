@@ -11,3 +11,4 @@ tensorflow==2.18.0
 keras_tuner==1.4.7
 umap_learn==0.5.9.post2
 ipywidgets==8.1.7
+sphinxcontrib-mermaid==2.0.1

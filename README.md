@@ -3,18 +3,71 @@
 This is currently a work in progress, but feel free to take a look: 
 https://deil87.github.io/applied_data_science_book/intro.html
 
-## Local installation
+## Build and run locally
+
+A convenience script handles everything in one step:
+
+```bash
+./run_book.sh            # incremental build (uses cached notebook outputs)
+./run_book.sh --clean    # clean build (clears all cached outputs first)
+```
+
+The script will:
+1. Create the virtual environment (`adsb_env/`) if it does not exist.
+2. Install / sync all dependencies from `applied_data_science_book/requirements.txt`.
+3. Build the book with `jupyter-book`.
+4. Open the result in your default browser automatically.
+
+### Manual steps (if you prefer)
+
+### 1. Prerequisites
+
+- Python 3.10+ installed on your machine.
+- All commands below are run from the **repository root** (`applied_ds_book/`).
+
+### 2. Create and activate the virtual environment
+
+```bash
+python -m venv adsb_env
+source adsb_env/bin/activate        # macOS / Linux
+# adsb_env\Scripts\activate         # Windows
+```
+
+### 3. Install dependencies
+
+```bash
+pip install -r applied_data_science_book/requirements.txt
+```
+
+### 4. Build the book
+
+```bash
+jupyter-book build applied_data_science_book/
+```
+
+For a **clean rebuild** (clears all cached notebook outputs):
+
+```bash
+jupyter-book clean applied_data_science_book/
+jupyter-book build applied_data_science_book/
+```
+
+### 5. Open in a browser
+
+```bash
+open applied_data_science_book/_build/html/index.html   # macOS
+# xdg-open applied_data_science_book/_build/html/index.html  # Linux
+# start applied_data_science_book/_build/html/index.html     # Windows
+```
+
+Or paste the path directly into your browser:
 
 ```
-source adsb_env/bin/activate  
-pip install -r requirements.txt 
+file:///path/to/applied_ds_book/applied_data_science_book/_build/html/index.html
 ```
 
-In order to build the book run this in the root directory:
-
-jupyter-book build applied_data_science_book/.
-
-(known issue, LTR folder is automatilly being picked up and we receive warnings)
+> **Known issue:** The legacy `Learning to rank/` folder (space in name) is automatically
+> picked up by Jupyter Book and generates build warnings. It can safely be ignored.
 
 ## Remote deployment to Github Pages
 

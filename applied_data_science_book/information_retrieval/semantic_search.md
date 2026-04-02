@@ -14,8 +14,6 @@ kernelspec:
 
 # Semantic Search
 
-> **Status: stub** — content will be expanded from resource articles.
-
 Sparse retrieval (BM25) relies on exact token overlap between query and document.
 Semantic search addresses the **vocabulary mismatch problem** by mapping both
 queries and documents into a shared dense vector space where proximity reflects
@@ -34,6 +32,52 @@ meaning rather than surface form.
 
 In practice the two are complementary: **hybrid search** (BM25 + dense) often
 outperforms either alone.
+
+## Distributional semantics: topical vs. typical relatedness
+
+Before picking an embedding model, it helps to understand the two fundamentally
+different ways words can be "semantically close" — because different model
+architectures optimise for different kinds of closeness.
+
+### Two types of relatedness
+
+**Topical (associative) relatedness** — words belong to the same *subject
+matter* or semantic field. They co-occur frequently in the same *documents*, but
+one cannot necessarily substitute for the other in a sentence.
+
+> Examples: *doctor* & *hospital*, *coffee* & *mug*, *sun* & *beach*
+
+**Typical (substitutionary / functional) relatedness** — words share semantic
+features and function similarly in a sentence. They can often replace each other
+without changing grammatical structure.
+
+> Examples: *car* & *bus*, *big* & *huge*, *run* & *walk*
+
+```{image} images/topical_vs_typical.png
+:alt: Diagram showing topical vs. typical semantic relatedness
+:width: 80%
+:align: center
+```
+
+### How classic embedding models map onto this distinction
+
+| Model | Mechanism | Prioritises |
+|---|---|---|
+| **Word2Vec** (Skip-gram / CBOW) | Local sliding window (~5 words); predicts nearby context words | **Typical** — learns words that appear next to the same context words |
+| **LSA** (Latent Semantic Analysis) | SVD on a global term–document co-occurrence matrix | **Topical** — learns words that appear in the same overall documents |
+| **GloVe** | Factorises a global *word–word* co-occurrence matrix | **Both** — strong on analogies (typical) while still capturing topic (topical) |
+
+This distinction has direct practical consequences:
+
+- **Query expansion** built on Word2Vec will surface good *synonyms* (*laptop →
+  notebook*) but may miss thematically related terms (*laptop → charger*).
+- **LSA-style models** are better at clustering documents by topic, but poorer
+  at synonym detection.
+- **GloVe** is a safer default when you want a single static embedding for
+  general-purpose retrieval.
+- **Contextual models** (BERT, Sentence-Transformers) learn both types
+  simultaneously from billions of tokens, which is a key reason they outperform
+  all static embeddings on retrieval benchmarks.
 
 ## Text embeddings
 
@@ -86,8 +130,4 @@ Use the same NDCG / MRR / Recall@k metrics as for sparse retrieval. The
 [BEIR benchmark](https://github.com/beir-cellar/beir) provides a standard
 heterogeneous test suite across 18 retrieval tasks.
 
----
 
-*Add resource articles to `applied_data_science_book/information_retrieval/` and
-expand this page with embeddings code, ANN benchmarks, and RAG pipeline
-examples.*

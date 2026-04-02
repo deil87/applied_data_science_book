@@ -31,3 +31,6 @@ chapters:
       - file: information_retrieval/search_fundamentals
       - file: information_retrieval/semantic_search
       - file: information_retrieval/learning_to_rank
+- file: causal_inference/index
+  sections:
+      - file: causal_inference/doubly_robust
