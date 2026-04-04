@@ -108,6 +108,8 @@ Every row in your dataset provides three things:
 | $T_i \in \{0,1\}$ | Treatment indicator | Did the guest receive the flash-sale email? |
 | $Y_i$ | Observed outcome | Did the guest book? ($1$ = yes, $0$ = no) |
 
+The composition of $X$ matters: confounders must be present for unbiased estimation, effect modifiers must be present for heterogeneous CATE predictions, and bad controls (mediators, colliders) must be excluded. See {doc}`feature_roles` for the full breakdown.
+
 ---
 
 ### Phase 1 — Nuisance Models

@@ -66,6 +66,8 @@ Causal methods handle confounding through a set of identification assumptions �
 - **Unconfoundedness (Ignorability):** $(Y(0), Y(1)) \perp T \mid X$ — conditional on observed features, treatment is as-good-as-random.
 - **Overlap (Positivity):** $0 < P(T=1 \mid X) < 1$ — every individual has a nonzero chance of being in either group.
 
+Because $X$ carries so much weight — it must contain confounders for validity, effect modifiers for CATE resolution, and must exclude bad controls that introduce bias — choosing what to put in $X$ is one of the most consequential decisions in any causal analysis. See {doc}`feature_roles` for a detailed breakdown.
+
 ---
 
 ## The Meta-Learner Family

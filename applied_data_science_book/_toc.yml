@@ -33,4 +33,5 @@ chapters:
       - file: information_retrieval/learning_to_rank
 - file: causal_inference/index
   sections:
+      - file: causal_inference/feature_roles
       - file: causal_inference/doubly_robust
