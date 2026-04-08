@@ -83,6 +83,8 @@ The four main meta-learners differ in *how* they use the treatment variable:
 | **X-Learner** | Imputes individual effects; iterates | Complex; adds assumptions |
 | **DR-Learner** | Combines outcome models + propensity weighting | Robust to misspecification of one nuisance model |
 
+Meta-learners are not limited to tabular data. When causal variables are embedded in unstructured text — support tickets, clinical notes, customer emails — LLMs can extract or generate the structured inputs these estimators need. See {doc}`causal_nlp` for the full treatment of Causal NLP.
+
 ---
 
 ## Sections in This Chapter

@@ -35,3 +35,4 @@ chapters:
   sections:
       - file: causal_inference/feature_roles
       - file: causal_inference/doubly_robust
+      - file: causal_inference/causal_nlp
